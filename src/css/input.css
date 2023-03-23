@@ -38,6 +38,26 @@ h6 {
 html {
   font-family: "Heebo", sans-serif;
 }
+.swiper-slide-active {
+  display: flex;
+  align-items: center;
+  padding: 0 2.5vw;
+}
+.swiper-slide-active img {
+  height: 500px;
+}
+.swiper-button-next {
+  margin-right: -20px;
+}
+.swiper-button-prev {
+  margin-left: -20px;
+}
+.swiper-button-next::after {
+  content: "";
+}
+.swiper-button-prev::after {
+  content: "";
+}
 
 @tailwind base;
 @tailwind components;
