@@ -431,13 +431,18 @@
         year: "2023"
       }
     ]
-
     let currentIndex = 2;
-    const titleSliderChild = document.querySelector('#title-slider-child')
-    const titleSliderParent = document.querySelector('#title-slider-parent')
+    let titleSliderChild = document.querySelector('#title-slider-child')
+    let titleSliderParent = document.querySelector('#title-slider-parent')
     let titleSliderHeight = titleSliderParent.offsetHeight;
     let locationTitle = titleSliderHeight * (currentIndex - 1);
     titleSliderChild.style.transform = `translateY(-${locationTitle}px)`
+    window.addEventListener('resize', function () {
+      titleSliderHeight = titleSliderParent.offsetHeight;
+      titleSliderHeight = titleSliderParent.offsetHeight;
+      locationTitle = titleSliderHeight * (currentIndex - 1);
+      titleSliderChild.style.transform = `translateY(-${locationTitle}px)`
+    });
     const sliderLength = slider.length;
     for (let i = 0; i < sliderLength; i++) {
       const p = document.createElement('p');
