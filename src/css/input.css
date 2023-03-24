@@ -43,20 +43,138 @@ html {
   align-items: center;
   padding: 0 2.5vw;
 }
+@media screen and (min-width: 1536px) {
+  .swiper-slide-active {
+    padding: 0;
+  }
+}
 .swiper-slide-active img {
-  height: 500px;
+  height: 200px;
+}
+@media screen and (min-width: 640px) {
+  .swiper-slide-active {
+    padding: 0 4vw;
+  }
+  .swiper-slide-active img {
+    height: 235px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .swiper-slide-active img {
+    height: 355px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .swiper-slide-active img {
+    height: 500px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .swiper-slide-active img {
+    height: 475px;
+  }
+}
+.swiper-slide-next {
+  transform: translate3d(0px, 0px, -300px) rotateX(0deg) rotateY(-50deg)
+    scale(1) !important;
+}
+.swiper-slide-prev {
+  transform: translate3d(0px, 0px, -300px) rotateX(0deg) rotateY(50deg) scale(1) !important;
+}
+@media screen and (min-width: 1024px) {
+  .swiper-slide-next {
+    transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(-50deg)
+      scale(1) !important;
+  }
+  .swiper-slide-prev {
+    transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(50deg)
+      scale(1) !important;
+  }
 }
 .swiper-button-next {
-  margin-right: -20px;
+  margin-right: -15%;
 }
 .swiper-button-prev {
-  margin-left: -20px;
+  margin-left: -15%;
+}
+@media screen and (min-width: 1440px) {
+  .swiper-button-next {
+    margin-right: -1vw;
+  }
+  .swiper-button-prev {
+    margin-left: -1vw;
+  }
+  .swiper-slide-active {
+    padding: 0 5vw;
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .swiper-button-next {
+    margin-right: -0.5vw;
+  }
+  .swiper-button-prev {
+    margin-left: -0.5vw;
+  }
 }
 .swiper-button-next::after {
   content: "";
 }
 .swiper-button-prev::after {
   content: "";
+}
+
+@font-face {
+  font-family: YTFGrand-Bold;
+  src: url("../src/lib/fonts/YTFGrand-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: YTFGrand-Medium;
+  src: url("../src/lib/fonts/YTFGrand-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: YTFGrand-Light;
+  src: url("../src/lib/fonts/YTFGrand-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: YTFGrand-BoldStencil;
+  src: url("../src/lib/fonts/YTFGrand-BoldStencil.otf") format("opentype");
+}
+
+@font-face {
+  font-family: YTFGrand-MediumStencil;
+  src: url("../src/lib/fonts/YTFGrand-MediumStencil.otf") format("opentype");
+}
+
+@font-face {
+  font-family: YTFGrand-LightStencil;
+  src: url("../src/lib/fonts/YTFGrand-LightStencil.otf") format("opentype");
+}
+
+.custom-font-medium {
+  font-family: YTFGrand-Medium !important;
+}
+.custom-font-light {
+  font-family: YTFGrand-Light !important;
+}
+
+.custom-font-stencil-medium {
+  font-family: "YTFGrand-MediumStencil" !important;
+}
+
+.custom-font-stencil-bold {
+  font-family: "YTFGrand-BoldStencil" !important;
+}
+
+.custom-font-stencil-light {
+  font-family: "YTFGrand-LightStencil" !important;
+}
+
+body {
+  font-family: YTFGrand-Medium !important;
 }
 
 @tailwind base;
