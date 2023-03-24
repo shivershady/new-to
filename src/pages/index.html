@@ -439,7 +439,6 @@
     titleSliderChild.style.transform = `translateY(-${locationTitle}px)`
     window.addEventListener('resize', function () {
       titleSliderHeight = titleSliderParent.offsetHeight;
-      titleSliderHeight = titleSliderParent.offsetHeight;
       locationTitle = titleSliderHeight * (currentIndex - 1);
       titleSliderChild.style.transform = `translateY(-${locationTitle}px)`
     });
