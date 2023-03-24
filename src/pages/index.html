@@ -444,6 +444,11 @@
       p.textContent = slider[i].title;
       titleSliderChild.appendChild(p);
     }
+    swiper.on('slideChange', function () {
+      currentIndex = swiper.realIndex + 1;
+      locationTitle = titleSliderHeight * (currentIndex - 1);
+      titleSliderChild.style.transform = `translateY(-${locationTitle}px)`
+    })
 
     function handleBtnNext() {
       currentIndex++;
