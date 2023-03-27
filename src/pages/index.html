@@ -9,11 +9,11 @@
   <title>New To</title>
 </head>
 <body>
-  <header class="flex flex-col h-[1040px] lg:h-screen lg:flex-row">
-    <div class="flex flex-col justify-between h-full bg-gray-100 lg:w-1/2">
+  <header class="flex flex-col h-auto lg:h-screen lg:flex-row">
+    <div class="relative flex flex-col justify-between h-screen bg-gray-100 lg:h-full lg:w-1/2">
       <div class="flex justify-between px-[16px] py-[24px] lg:p-[45px]">
-        <div class="font-normal text-[24px]">Search</div>
-        <div class="font-normal text-[24px]">Menu</div>
+        <div class="font-normal text-[24px]" onclick="openSearch()">Search</div>
+        <div class="font-normal text-[24px]" onclick="openMenu()">Menu</div>
       </div>
       <div class="flex justify-center w-full">
         <div class="text-center text-[46px] uppercase font-normal custom-font-stencil-medium">
@@ -29,138 +29,262 @@
         </div>
       </div>
 
+      <div class="absolute inset-0 z-20 bg-black px-[16px] py-[24px] lg:p-[45px] hidden" id="show-menu">
+        <div class="flex flex-col justify-between h-full overflow-auto">
+          <div>
+            <div class="font-normal text-[24px] text-white w-full flex justify-end" onclick="closeMenu()">
+              <p class="cursor-pointer">Close</p>
+            </div>
+            <ul class="mt-[80px] space-y-[16px]">
+              <li>
+                <div
+                  class="font-normal text-[22px] lg:text-[36px] text-white flex justify-start items-center gap-x-[8px] lg:gap-x-[16px]">
+                  <span>ABOUT US</span>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="font-normal text-[22px] lg:text-[36px] text-white flex justify-start items-center gap-x-[8px] lg:gap-x-[16px]">
+                  <span>VISIT</span>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="font-normal text-[22px] lg:text-[36px] text-white flex justify-start items-center gap-x-[8px] lg:gap-x-[16px]">
+                  <span>EDUCATION</span>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="font-normal text-[22px] lg:text-[36px] text-white flex justify-start items-center gap-x-[8px] lg:gap-x-[16px]">
+                  <span>SERVICES</span>
+                </div>
+              </li>
+              <li>
+                <input type="checkbox" id="menu-item-4" class="hidden peer/item">
+                <label for="menu-item-4"
+                  class="font-normal text-[22px] lg:text-[36px] text-white flex justify-start items-center gap-x-[8px] lg:gap-x-[16px]">
+                  <span>COLLECTION</span>
+                  <span class="icon-down">
+                    <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12 12L23.25 1.49212L21.6525 0L17.805 3.61471L12 9.03678L6.195 3.61471L2.3475 0.0210154L0.75 1.51313L12 12Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                  <span class="hidden icon-up">
+                    <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12 9.83506e-07L0.75 10.5079L2.3475 12L6.195 8.38529L12 2.96322L17.805 8.38529L21.6525 11.979L23.25 10.4869L12 9.83506e-07Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </label>
+                <ul class="space-y-[8px] lg:space-y-[12px] hidden peer-checked/item:block">
+                  <li class="text-[#ffffff66] font-normal text-[16px] lg:text-[24px]">item1</li>
+                  <li class="text-[#ffffff66] font-normal text-[16px] lg:text-[24px]">item2</li>
+                  <li class="text-[#ffffff66] font-normal text-[16px] lg:text-[24px]">item3</li>
+                </ul>
+              </li>
+              <li>
+                <input type="checkbox" id="menu-item-5" class="hidden peer/item">
+                <label for="menu-item-5"
+                  class="font-normal text-[22px] lg:text-[36px] text-white flex justify-start items-center gap-x-[8px] lg:gap-x-[16px] cursor-pointer"
+                  onclick="handleIcon(event)">
+                  <span>EXHIBITIONS &amp; PROGRAMMES</span>
+                  <span class="icon-down">
+                    <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12 12L23.25 1.49212L21.6525 0L17.805 3.61471L12 9.03678L6.195 3.61471L2.3475 0.0210154L0.75 1.51313L12 12Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                  <span class="hidden icon-up">
+                    <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12 9.83506e-07L0.75 10.5079L2.3475 12L6.195 8.38529L12 2.96322L17.805 8.38529L21.6525 11.979L23.25 10.4869L12 9.83506e-07Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </label>
+                <ul class="space-y-[8px] lg:space-y-[12px] hidden peer-checked/item:block">
+                  <li class="text-[#ffffff66] font-normal text-[16px] lg:text-[24px]">item1</li>
+                  <li class="text-[#ffffff66] font-normal text-[16px] lg:text-[24px]">item2</li>
+                  <li class="text-[#ffffff66] font-normal text-[16px] lg:text-[24px]">item3</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="w-full text-center text-[#ffffff66] border-t border-x py-[11px] border-[#444444] font-normal text-[16px ]">
+            © 2022 The Outpost Art Organization
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 z-20 bg-black px-[16px] py-[24px] lg:p-[45px] hidden" id="show-search">
+        <div class="flex flex-col justify-start h-full overflow-auto">
+          <div>
+            <div class="font-normal text-[24px] text-white w-full flex justify-end" onclick="closeSearch()">
+              <p class="cursor-pointer">Close</p>
+            </div>
+          </div>
+          <div class="relative mt-[64px]">
+            <input type="text" placeholder="Search your keyword here ..."
+              class="pr-[40px] pl-[16px] py-[16px] border-x border-t border-[#444444] w-full bg-transparent text-[#ffffff66] font-normal text-[16px]">
+            <span class="absolute inset-y-0 right-0 flex items-center pr-[16px]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.8959 8.11111H17C16.7151 4.33333 13.6904 1.28889 9.9863 1V3.04444C12.5288 3.24444 14.6986 5.42222 14.8959 8.11111ZM1 9.88889C1.28493 13.6667 4.3096 16.7111 8.0137 17V14.9556C5.47124 14.7556 3.32329 12.5778 3.10411 9.88889H1ZM1 8.11111H3.10411C3.30137 5.42222 5.47124 3.24444 8.0137 3.04444V1C4.3096 1.28889 1.28493 4.33333 1 8.11111ZM9.9863 17C13.6904 16.7111 16.7151 13.6667 17 9.88889H14.8959C14.6767 12.5778 12.5288 14.7556 9.9863 14.9556V17Z"
+                  fill="white" />
+                <path d="M13.9703 15.4438L15.3845 14.0296L21.5005 20.5L18.8342 20.5L13.9703 15.4438Z" fill="white" />
+              </svg>
+
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="h-full overflow-hidden bg-gray-200 lg:w-1/2">
+
+    <div class="h-screen overflow-hidden bg-gray-200 lg:h-full lg:w-1/2">
       <img class="object-cover w-full h-full" src="../img/the-out-post.png" alt="the-out-post">
     </div>
   </header>
-  <section class="bg-[#1F1D1C] px-[16px] py-[48px] lg:px-[40px] lg:py-[80px]">
-    <div>
-      <div class="font-normal text-[20px] lg:text-[30px] text-[#ffffff66] custom-font-stencil-medium">Current Exhibition
-      </div>
-      <div class="group/interface">
-        <div class="flex flex-col lg:flex-row justify-between mt-[16px] lg:mt-[32px] ">
-          <div class="font-normal text-[28px] lg:text-[46px] text-white leading-[36px] lg:leading-[56px]">PECULIAR
-            INTERFACES</div>
-          <div
-            class="font-normal text-[28px] lg:text-[46px] text-white leading-[36px] lg:leading-[56px] custom-font-light custom-font-stencil-medium">
-            24
-            JUN 2022 - 24
-            JUN 2023</div>
+  <section class="bg-[#1F1D1C] py-[48px] lg:py-[80px]">
+    <div class="container">
+      <div>
+        <div class="font-normal text-[20px] lg:text-[30px] text-[#ffffff66] custom-font-stencil-medium">Current
+          Exhibition
         </div>
-        <div class="flex flex-col lg:flex-row mt-[24px] lg:h-[556px] lg:gap-x-[24px]">
-          <div class="w-full lg:w-[75%] lg:pr-[80px]">
-            <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/interface:scale-90"
-              src="../img/special-interface.png" alt="special-interface">
+        <div class="group/interface">
+          <div class="flex flex-col lg:flex-row justify-between mt-[16px] lg:mt-[32px] ">
+            <div class="font-normal text-[28px] lg:text-[46px] text-white leading-[36px] lg:leading-[56px]">PECULIAR
+              INTERFACES</div>
+            <div
+              class="font-normal text-[28px] lg:text-[46px] text-white leading-[36px] lg:leading-[56px] custom-font-light custom-font-stencil-medium">
+              24
+              JUN 2022 - 24
+              JUN 2023</div>
           </div>
-          <div class="w-full lg:w-[25%] flex flex-col justify-between items-start">
-            <div class="text-white font-normal text-[20px] lg:text-[24px] mt-[32px] lg:mt-0">"Fractured Times" looks at
-              the cracks,
-              partitions, the
-              discrete and cohesive
-              presence of the pieces in
-              society. Each room introduces one of works by an artist - with wanted to create a private scene, an
-              isolated space where the viewer is forced to confront the story of the work</div>
-            <button class="text-white w-fit py-[16px] px-[24px] border border-white mt-[24px] lg:mt-0 text-[16px]">View
-              Detail</button>
+          <div class="flex flex-col lg:flex-row mt-[24px] lg:h-[556px] lg:gap-x-[24px]">
+            <div class="w-full lg:w-[75%] lg:pr-[80px]">
+              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/interface:scale-90"
+                src="../img/special-interface.png" alt="special-interface">
+            </div>
+            <div class="w-full lg:w-[25%] flex flex-col justify-between items-start">
+              <div class="text-white font-normal text-[20px] lg:text-[24px] mt-[32px] lg:mt-0">"Fractured Times" looks
+                at
+                the cracks,
+                partitions, the
+                discrete and cohesive
+                presence of the pieces in
+                society. Each room introduces one of works by an artist - with wanted to create a private scene, an
+                isolated space where the viewer is forced to confront the story of the work</div>
+              <button
+                class="text-white w-fit py-[16px] px-[24px] border border-white mt-[24px] lg:mt-0 text-[16px]">View
+                Detail</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="mt-[32px] lg:mt-[76px] grid grid-cols-1 lg:grid-cols-2 gap-y-[32px] lg:gap-y-0">
-      <div class="space-y-[16px] lg:space-y-[32px]">
-        <div class="font-normal text-[20px] lg:text-[30px] text-[#ffffff66] custom-font-stencil-medium">Upcoming
-          Exhibition</div>
-        <div class="p-[24px] lg:p-[32px] border-t border-[#444444] border-l">
-          <small class="text-white text-[16px]">24 JUN 2022 - 24 JUN 2023</small>
-          <p class="text-white text-[26px]">New Exhibition Title</p>
-        </div>
+      <div class="mt-[32px] lg:mt-[76px] grid grid-cols-1 lg:grid-cols-2 gap-y-[32px] lg:gap-y-0">
+        <div class="space-y-[16px] lg:space-y-[32px]">
+          <div class="font-normal text-[20px] lg:text-[30px] text-[#ffffff66] custom-font-stencil-medium">Upcoming
+            Exhibition</div>
+          <div class="p-[24px] lg:p-[32px] border-t border-[#444444] border-l">
+            <small class="text-white text-[16px]">24 JUN 2022 - 24 JUN 2023</small>
+            <p class="text-white text-[26px]">New Exhibition Title</p>
+          </div>
 
-      </div>
-      <div class="space-y-[16px] lg:space-y-[32px]">
-        <div class="font-normal text-[20px] lg:text-[30px] text-[#ffffff66] custom-font-stencil-medium">Past Exhibition
         </div>
-        <div class="p-[24px] lg:p-[32px] border-t border-[#444444] border-x">
-          <small class="text-white text-[16px]">24 JUN 2022 - 24 JUN 2023</small>
-          <p class="text-white text-[26px]">New Exhibition Title</p>
+        <div class="space-y-[16px] lg:space-y-[32px]">
+          <div class="font-normal text-[20px] lg:text-[30px] text-[#ffffff66] custom-font-stencil-medium">Past
+            Exhibition
+          </div>
+          <div class="p-[24px] lg:p-[32px] border-t border-[#444444] border-x">
+            <small class="text-white text-[16px]">24 JUN 2022 - 24 JUN 2023</small>
+            <p class="text-white text-[26px]">New Exhibition Title</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="bg-white px-[16px] py-[48px] lg:px-[40px] lg:py-[80px]">
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-      <div>
-        <div class="font-normal text-[28px] lg:text-[42px] text-[#1F1D1C] leading-[44px] custom-font-stencil-medium">
-          Public Programmes
-        </div>
-        <p class="font-normal text-[20px] lg:text-[24px] mt-[8px] lg:mt-[35px] text-[#1F1D1C]">Lorem ipsum dolor sit
-          amet,
-          consectetur
-          adipiscing
-          elit. Sed
-          euismod, diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio. Sed euismod,
-          diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio.</p>
-      </div>
-      <div class="flex items-start lg:justify-end">
-        <button
-          class="text-[#1F1D1C] bg-white py-[16px] px-[24px] border border-[#1F1D1C] font-normal text-[16px] mt-[24px] lg:mt-0">View
-          Detail</button>
-      </div>
-    </div>
-    <div
-      class="lg:h-[366px] mt-[40px] lg:mt-[72px] grid grid-cols-1 lg:grid-cols-3 group/categories gap-y-[32px] lg:gap-y-0">
-      <div class="grid grid-cols-4 lg:grid-cols-5 border-t border-x border-[#CECECE]">
-        <div class="text-[#1F1D1C] col-span-1 px-[16px] lg:px-[24px] pt-[24px] flex flex-col">
-          <span class="text-[20px] lg:text-[24px]">26</span>
-          <small class="text-[14px] lg:text-[16px]">02.2023</small>
-        </div>
-        <div class="col-span-3 lg:col-span-4 px-[8px] lg:px-[25px] pt-[25px] flex flex-col justify-between">
-          <div class="text-[#1F1D1C]">
-            <small class="text-[16px]">Category</small>
-            <p class="text-[20px] lg:text-[26px]">FRACTURED TIME</p>
+  <section class="bg-white py-[48px] lg:py-[80px]">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div>
+          <div class="font-normal text-[28px] lg:text-[42px] text-[#1F1D1C] leading-[44px] custom-font-stencil-medium">
+            Public Programmes
           </div>
-          <div class="h-auto overflow-hidden">
-            <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/categories:scale-90"
-              src="../img/category-1.png" alt="category-1">
-          </div>
+          <p class="font-normal text-[20px] lg:text-[24px] mt-[8px] lg:mt-[35px] text-[#1F1D1C]">Lorem ipsum dolor sit
+            amet,
+            consectetur
+            adipiscing
+            elit. Sed
+            euismod, diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio. Sed euismod,
+            diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio.</p>
+        </div>
+        <div class="flex items-start lg:justify-end">
+          <button
+            class="text-[#1F1D1C] bg-white py-[16px] px-[24px] border border-[#1F1D1C] font-normal text-[16px] mt-[24px] lg:mt-0">View
+            Detail</button>
         </div>
       </div>
-      <div class="grid grid-cols-4 lg:grid-cols-5 border-t border-x lg:border-l-0 border-[#CECECE]">
-        <div class="text-[#1F1D1C] col-span-1 px-[16px] lg:px-[24px] pt-[24px] flex flex-col">
-          <span class="text-[20px] lg:text-[24px]">26</span>
-          <small class="text-[14px] lg:text-[16px]">02.2023</small>
-        </div>
-        <div class="col-span-3 lg:col-span-4 px-[8px] lg:px-[25px] pt-[25px] flex flex-col justify-between">
-          <div class="text-[#1F1D1C]">
-            <small class="text-[16px]">Category</small>
-            <p class="text-[20px] lg:text-[26px]">FRACTURED TIME AND FRACTURED TIME</p>
+      <div
+        class="lg:h-[366px] mt-[40px] lg:mt-[72px] grid grid-cols-1 lg:grid-cols-3 group/categories gap-y-[32px] lg:gap-y-0">
+        <div class="grid grid-cols-4 lg:grid-cols-5 border-t border-x border-[#CECECE]">
+          <div class="text-[#1F1D1C] col-span-1 px-[16px] lg:px-[24px] pt-[24px] flex flex-col">
+            <span class="text-[20px] lg:text-[24px]">26</span>
+            <small class="text-[14px] lg:text-[16px]">02.2023</small>
           </div>
-          <div class="h-auto overflow-hidden">
-            <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/categories:scale-90"
-              src="../img/category-2.png" alt="category-2">
+          <div class="col-span-3 lg:col-span-4 px-[8px] lg:px-[25px] pt-[25px] flex flex-col justify-between">
+            <div class="text-[#1F1D1C]">
+              <small class="text-[16px]">Category</small>
+              <p class="text-[20px] lg:text-[26px]">FRACTURED TIME</p>
+            </div>
+            <div class="h-auto overflow-hidden">
+              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/categories:scale-90"
+                src="../img/category-1.png" alt="category-1">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="grid grid-cols-4 lg:grid-cols-5 border-t border-x lg:border-l-0 border-[#CECECE]">
-        <div class="text-[#1F1D1C] col-span-1 px-[16px] lg:px-[24px] pt-[24px] flex flex-col">
-          <span class="text-[20px] lg:text-[24px]">26</span>
-          <small class="text-[14px] lg:text-[16px]">02.2023</small>
-        </div>
-        <div class="col-span-3 lg:col-span-4 px-[8px] lg:px-[25px] pt-[25px] flex flex-col justify-between">
-          <div class="text-[#1F1D1C]">
-            <small class="text-[16px]">Category</small>
-            <p class="text-[20px] lg:text-[26px]">FRACTURED TIME</p>
+        <div class="grid grid-cols-4 lg:grid-cols-5 border-t border-x lg:border-l-0 border-[#CECECE]">
+          <div class="text-[#1F1D1C] col-span-1 px-[16px] lg:px-[24px] pt-[24px] flex flex-col">
+            <span class="text-[20px] lg:text-[24px]">26</span>
+            <small class="text-[14px] lg:text-[16px]">02.2023</small>
           </div>
-          <div class="h-auto overflow-hidden">
-            <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/categories:scale-90"
-              src="../img/category-3.png" alt="category-3">
+          <div class="col-span-3 lg:col-span-4 px-[8px] lg:px-[25px] pt-[25px] flex flex-col justify-between">
+            <div class="text-[#1F1D1C]">
+              <small class="text-[16px]">Category</small>
+              <p class="text-[20px] lg:text-[26px]">FRACTURED TIME AND FRACTURED TIME</p>
+            </div>
+            <div class="h-auto overflow-hidden">
+              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/categories:scale-90"
+                src="../img/category-2.png" alt="category-2">
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 lg:grid-cols-5 border-t border-x lg:border-l-0 border-[#CECECE]">
+          <div class="text-[#1F1D1C] col-span-1 px-[16px] lg:px-[24px] pt-[24px] flex flex-col">
+            <span class="text-[20px] lg:text-[24px]">26</span>
+            <small class="text-[14px] lg:text-[16px]">02.2023</small>
+          </div>
+          <div class="col-span-3 lg:col-span-4 px-[8px] lg:px-[25px] pt-[25px] flex flex-col justify-between">
+            <div class="text-[#1F1D1C]">
+              <small class="text-[16px]">Category</small>
+              <p class="text-[20px] lg:text-[26px]">FRACTURED TIME</p>
+            </div>
+            <div class="h-auto overflow-hidden">
+              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/categories:scale-90"
+                src="../img/category-3.png" alt="category-3">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
   <section class="bg-[#F4F4F4]">
-    <div class="grid grid-cols-1 lg:grid-cols-2 px-[16px] py-[48px] lg:px-[40px] lg:py-[80px]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 container py-[48px] lg:py-[80px]">
       <div>
         <div class="font-normal text-[28px] lg:text-[42px] text-[#1F1D1C] leading-[44px] custom-font-stencil-medium">
           Collection
@@ -219,175 +343,183 @@
 
     </div>
   </section>
-  <section class="bg-[#1F1D1C] px-[16px] py-[48px] lg:px-[40px] lg:py-[80px]">
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-      <div>
-        <div class="font-normal text-[28px] lg:text-[42px] text-white leading-[44px] custom-font-stencil-medium">
-          The Outpost Elements
-        </div>
-        <p class="font-normal text-[20px] lg:text-[24px] mt-[8px] lg:mt-[35px] text-white">Lorem ipsum dolor sit
-          amet,
-          consectetur
-          adipiscing
-          elit. Sed
-          euismod, diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio. Sed euismod,
-          diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio.</p>
-      </div>
-    </div>
-    <div class="mt-[40px] lg:mt-[84px] space-y-[40px] lg:space-y-[90px]">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-[40px] lg:gap-y-0 lg:gap-x-[32px]">
-        <div class="lg:col-span-2 group/img">
-          <div class="w-full h-auto overflow-hidden">
-            <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
-              src="../img/programmes-1.png" alt="programmes-1">
+  <section class="bg-[#1F1D1C] py-[48px] lg:py-[80px]">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div>
+          <div class="font-normal text-[28px] lg:text-[42px] text-white leading-[44px] custom-font-stencil-medium">
+            The Outpost Elements
           </div>
-          <div class="border-t border-[#444444] flex mt-[16px]">
-            <span
-              class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
-            <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">Yayoi
-              Kusama soft
-              sculpture
-              pumpkin
-              keyring</p>
-          </div>
-        </div>
-        <div class="flex justify-end col-span-1 group/img">
-          <div class="w-full lg:w-2/3">
-            <div class="w-full h-auto overflow-hidden">
-              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
-                src="../img/programmes-2.png" alt="programmes-2">
-            </div>
-            <div class="border-t border-[#444444] flex mt-[16px]">
-              <span
-                class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
-              <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
-                Hockney A Bigger
-                Splash cushion cover</p>
-            </div>
-          </div>
+          <p class="font-normal text-[20px] lg:text-[24px] mt-[8px] lg:mt-[35px] text-white">Lorem ipsum dolor sit
+            amet,
+            consectetur
+            adipiscing
+            elit. Sed
+            euismod, diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio. Sed euismod,
+            diam eu bibendum bibendum, nibh velit bibendum ipsum, nec bibendum elit nunc vel odio.</p>
         </div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-[40px] lg:gap-y-0 lg:gap-x-[32px]">
-        <div class="flex flex-col items-end col-span-2 group/img">
-          <div class="w-full lg:w-2/3">
+      <div class="mt-[40px] lg:mt-[84px] space-y-[40px] lg:space-y-[90px]">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-[40px] lg:gap-y-0 lg:gap-x-[32px]">
+          <div class="lg:col-span-2 group/img">
             <div class="w-full h-auto overflow-hidden">
               <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
-                src="../img/programmes-3.png" alt="programmes-3">
+                src="../img/programmes-1.png" alt="programmes-1">
             </div>
             <div class="border-t border-[#444444] flex mt-[16px]">
               <span
                 class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
               <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
-                Yayoi Kusama soft
-                sculpture pumpkin keyring</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-end col-span-1 group/img">
-          <div class="w-full">
-            <div class="w-full h-auto overflow-hidden">
-              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
-                src="../img/programmes-4.png" alt="programmes-4">
-            </div>
-            <div class="border-t border-[#444444] flex mt-[16px]">
-              <span
-                class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
-              <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
-                Yayoi Kusama soft
+                Yayoi
+                Kusama soft
                 sculpture
                 pumpkin
                 keyring</p>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-[40px] lg:gap-y-0 lg:gap-x-[32px]">
-        <div class="flex justify-start col-span-1 group/img">
-          <div class="w-full">
-            <div class="w-full h-auto overflow-hidden">
-              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
-                src="../img/programmes-5.png" alt="programmes-5">
-            </div>
-            <div class="border-t border-[#444444] flex mt-[16px]">
-              <span
-                class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
-              <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
-                Yayoi Kusama soft
-                sculpture pumpkin keyring</p>
+          <div class="flex justify-end col-span-1 group/img">
+            <div class="w-full lg:w-2/3">
+              <div class="w-full h-auto overflow-hidden">
+                <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
+                  src="../img/programmes-2.png" alt="programmes-2">
+              </div>
+              <div class="border-t border-[#444444] flex mt-[16px]">
+                <span
+                  class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
+                <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
+                  Hockney A Bigger
+                  Splash cushion cover</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="flex justify-center lg:col-span-2 group/img">
-          <div class="w-full lg:w-1/2">
-            <div class="w-full h-auto overflow-hidden">
-              <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
-                src="../img/programmes-6.png" alt="programmes-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-[40px] lg:gap-y-0 lg:gap-x-[32px]">
+          <div class="flex flex-col items-end col-span-2 group/img">
+            <div class="w-full lg:w-2/3">
+              <div class="w-full h-auto overflow-hidden">
+                <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
+                  src="../img/programmes-3.png" alt="programmes-3">
+              </div>
+              <div class="border-t border-[#444444] flex mt-[16px]">
+                <span
+                  class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
+                <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
+                  Yayoi Kusama soft
+                  sculpture pumpkin keyring</p>
+              </div>
             </div>
-            <div class="border-t border-[#444444] flex mt-[16px]">
-              <span
-                class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
-              <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
-                Yayoi Kusama soft
-                sculpture
-                pumpkin
-                keyring</p>
+          </div>
+          <div class="flex justify-end col-span-1 group/img">
+            <div class="w-full">
+              <div class="w-full h-auto overflow-hidden">
+                <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
+                  src="../img/programmes-4.png" alt="programmes-4">
+              </div>
+              <div class="border-t border-[#444444] flex mt-[16px]">
+                <span
+                  class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
+                <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
+                  Yayoi Kusama soft
+                  sculpture
+                  pumpkin
+                  keyring</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-[40px] lg:gap-y-0 lg:gap-x-[32px]">
+          <div class="flex justify-start col-span-1 group/img">
+            <div class="w-full">
+              <div class="w-full h-auto overflow-hidden">
+                <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
+                  src="../img/programmes-5.png" alt="programmes-5">
+              </div>
+              <div class="border-t border-[#444444] flex mt-[16px]">
+                <span
+                  class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
+                <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
+                  Yayoi Kusama soft
+                  sculpture pumpkin keyring</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center lg:col-span-2 group/img">
+            <div class="w-full lg:w-1/2">
+              <div class="w-full h-auto overflow-hidden">
+                <img class="object-fill w-full h-full transition duration-500 ease-in-out group-hover/img:scale-90"
+                  src="../img/programmes-6.png" alt="programmes-6">
+              </div>
+              <div class="border-t border-[#444444] flex mt-[16px]">
+                <span
+                  class="p-[10px] border-x border-[#444444] text-white h-fit text-[16px] lg:text-[20px] font-normal">80$</span>
+                <p class="w-full p-[10px] text-white border-r border-[#444444] text-[16px] lg:text-[20px] font-normal">
+                  Yayoi Kusama soft
+                  sculpture
+                  pumpkin
+                  keyring</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
-  <footer class="bg-black px-[16px] pt-[48px] lg:px-[40px] lg:pt-[80px]">
-    <div class="grid lg:grid-cols-2">
-      <div>
-        <p class="text-white font-normal text-[28px] lg:text-[42px] custom-font-stencil-medium">Newsletters</p>
-      </div>
-      <div>
-        <p class="text-white font-normal text-[20px] lg:text-[24px]">Stay connected to the Outpost for the latest news,
-          stories,
-          exhibitions, events and
-          visitor information.</p>
-        <div class="grid grid-cols-3 lg:grid-cols-4 mt-[24px] lg:mt-[32px]">
-          <input class="border border-gray-400 py-[10px] px-[12px] col-span-2 lg:col-span-3" type="text"
-            placeholder="Your Email...">
-          <button class="bg-[#1F1D1C] text-white text-[16px] p-[16px]">Subscribe</button>
+  <footer class="bg-black pt-[48px] lg:pt-[80px]">
+    <div class="container">
+      <div class="grid lg:grid-cols-2">
+        <div>
+          <p class="text-white font-normal text-[28px] lg:text-[42px] custom-font-stencil-medium">Newsletters</p>
+        </div>
+        <div>
+          <p class="text-white font-normal text-[20px] lg:text-[24px]">Stay connected to the Outpost for the latest
+            news,
+            stories,
+            exhibitions, events and
+            visitor information.</p>
+          <div class="grid grid-cols-3 lg:grid-cols-4 mt-[24px] lg:mt-[32px]">
+            <input class="border border-gray-400 py-[10px] px-[12px] col-span-2 lg:col-span-3" type="text"
+              placeholder="Your Email...">
+            <button class="bg-[#1F1D1C] text-white text-[16px] p-[16px]">Subscribe</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="grid lg:grid-cols-3 mt-[80px] gap-y-[16px] lg:gap-y-0">
-      <div class="h-full p-[16px] lg:p-[32px] border-x border-t border-[#444444]">
-        <p class="text-white font-normal text-[20px] lg:text-[24px] mb-[10px] uppercase">THE OUTPOST ART ORGANISATION
+      <div class="grid lg:grid-cols-3 mt-[80px] gap-y-[16px] lg:gap-y-0">
+        <div class="h-full p-[16px] lg:p-[32px] border-x border-t border-[#444444]">
+          <p class="text-white font-normal text-[20px] lg:text-[24px] mb-[10px] uppercase">THE OUTPOST ART ORGANISATION
+          </p>
+          <p class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]">Level 2 - Tower B1, Roman Plaza Tố
+            Hữu, Nam Từ
+            Liêm, Hà Nội,
+            Hanoi, Vietnam</p>
+          <p class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]">123 456 789</p>
+          <p class="text-[#ffffff66] font-normal text-[16px] leading-[19px]">Email: hi@theoutpost.net</p>
+        </div>
+        <div class="h-full p-[16px] lg:p-[32px] border-x border-t border-[#444444] lg:border-l-0">
+          <p class="text-white font-normal text-[20px] lg:text-[24px] mb-[10px] uppercase">Social</p>
+          <ul>
+            <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Instagram</a></li>
+            <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Facebook</a></li>
+            <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Youtube</a></li>
+            <li class="text-[#ffffff66] font-normal text-[16px leading-[19px]"><a href="">Tiktok</a></li>
+          </ul>
+        </div>
+        <div class="h-full p-[16px] lg:p-[32px] border-x border-t border-[#444444] lg:border-l-0">
+          <p class="text-white font-normal text-[20px] lg:text-[24px] mb-[10px] uppercase">join us</p>
+          <ul>
+            <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Support</a></li>
+            <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Facebook</a></li>
+            <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Membership</a></li>
+            <li class="text-[#ffffff66] font-normal text-[16px] leading-[19px]"><a href="">Job & Internship</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p class="text-[#ffffff66] font-normal text-[16px] py-[24px] text-center">(c) 2022 The Outpost Art Organization
         </p>
-        <p class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]">Level 2 - Tower B1, Roman Plaza Tố
-          Hữu, Nam Từ
-          Liêm, Hà Nội,
-          Hanoi, Vietnam</p>
-        <p class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]">123 456 789</p>
-        <p class="text-[#ffffff66] font-normal text-[16px] leading-[19px]">Email: hi@theoutpost.net</p>
       </div>
-      <div class="h-full p-[16px] lg:p-[32px] border-x border-t border-[#444444] lg:border-l-0">
-        <p class="text-white font-normal text-[20px] lg:text-[24px] mb-[10px] uppercase">Social</p>
-        <ul>
-          <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Instagram</a></li>
-          <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Facebook</a></li>
-          <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Youtube</a></li>
-          <li class="text-[#ffffff66] font-normal text-[16px leading-[19px]"><a href="">Tiktok</a></li>
-        </ul>
-      </div>
-      <div class="h-full p-[16px] lg:p-[32px] border-x border-t border-[#444444] lg:border-l-0">
-        <p class="text-white font-normal text-[20px] lg:text-[24px] mb-[10px] uppercase">join us</p>
-        <ul>
-          <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Support</a></li>
-          <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Facebook</a></li>
-          <li class="text-[#ffffff66] font-normal text-[16px] mb-[8px] leading-[19px]"><a href="">Membership</a></li>
-          <li class="text-[#ffffff66] font-normal text-[16px] leading-[19px]"><a href="">Job & Internship</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div>
-      <p class="text-[#ffffff66] font-normal text-[16px] py-[24px] text-center">(c) 2022 The Outpost Art Organization
-      </p>
+
     </div>
   </footer>
 
@@ -472,6 +604,18 @@
       }
       locationTitle = locationTitle + -titleSliderHeight
       titleSliderChild.style.transform = `translateY(-${locationTitle}px)`;
+    }
+    function openMenu() {
+      document.getElementById('show-menu').style.display = 'block';
+    }
+    function closeMenu() {
+      document.getElementById('show-menu').style.display = 'none';
+    }
+    function openSearch() {
+      document.getElementById('show-search').style.display = 'block';
+    }
+    function closeSearch() {
+      document.getElementById('show-search').style.display = 'none';
     }
   </script>
 

@@ -37,6 +37,7 @@ h6 {
 
 html {
   font-family: "Heebo", sans-serif;
+  font-size: 16px;
 }
 .swiper-slide-active {
   display: flex;
@@ -180,6 +181,13 @@ body {
   content: "";
   clear: both;
   display: table;
+}
+
+input:checked + label .icon-down {
+  display: none;
+}
+input:checked + label .icon-up {
+  display: block;
 }
 
 @tailwind base;
